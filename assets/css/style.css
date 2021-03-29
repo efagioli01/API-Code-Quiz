@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    background: linear-gradient(0deg, rgb(70, 18, 67) 0%, rgb(182, 15, 224) 63%);
+  }
+
+  .quiz-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+
+    .hide {
+      display: none;
+      
+    }
+
+    
+    #start {
+      border: black 10px solid;
+    }
+
+    #timer {
+      border: black solid 10px;
+    }
