@@ -4,42 +4,45 @@ let questions = [
 
         title: "what does HTML stand for?",
         choices:
-            ["something", "other", "place",],
-            answer: "place"
+            ["Home Tool Markup Language", "Hyper Text Markup Language", "Hyper Tools Markup Language" ],
+            answer: "Hyper Text Markup Language"
     },
 
 
     {
-        title: "what does css stand for?",
+        title: "what does CSS stand for?",
         choices:
-            ["place", "place", "place",],
-            answer: "place",
+            ["Color Style Sheets", "Cascading Style Sheets", "Computer Science Sheets",],
+            answer: "Cascading Style Sheets",
 
     },
 
 
     {
-        title: "what does js stand for?",
+        title: "How do you write a comment in JavaScript?",
         choices:
-            ["place", "place", "place",],
-            answer: "place",
+            ["//comment", "-->comment", "!comment",],
+            answer: "//comment",
 
     },
 
     {
-        title: "what does this stand for?",
+        title: "Which property is used to change the font of a family?",
         choices:
-            ["place", "place", "place",],
-            answer: "place",
+            ["font-weight", "font-decoration", "font-family",],
+            answer: "font-family",
 
     },
 
     {
-        title: "what does hi stand for?",
+        title: "How do you select an element with an ID?",
         choices:
-            ["place", "place", "place",],
-            answer: "place",
+            [".hello", "#hello", "$hello",],
+            answer: "#hello",
 
     },
+
+    
 
 ];
+

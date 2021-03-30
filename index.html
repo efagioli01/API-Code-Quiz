@@ -9,17 +9,17 @@
 </head>
 
 <body>
-<header>
-    <button id="start-page-highscore">View High Scores</button>
-    <div class="timer">Time: <span id="time"></span></div>
-</header>
+    <header>
+        <button id="start-page-highscore">View High Scores</button>
+        <div class="timer">Time remaining: <span id="time"></span></div>
+    </header>
 
     <div class="quiz-container">
 
         <div id="start">
             <h2>This quiz is timed and designed to test you on<br>various HTML, CSS, and JS concepts</h2>
             <button id="start-button">Start Quiz</button>
-            
+
         </div>
 
         <div id="quiz" class="hide">
@@ -28,20 +28,35 @@
             <div id="question-title"></div>
             <div id="choices"></div>
 
-           
+
             <div id="result" class="feedBack hide"></div>
 
         </div>
 
         <div id="quiz-over" class="hide">
 
-            <div id="final-score"></div>
+            <div id="finalScore"></div>
             <input type="text" size="25" placeholder="Enter your initials for high score" id="initials" />
-            <button id="submit-score">Submit score</button>
+            <button id="submitScore">Submit score</button>
+        </div>
+        <div id=highScoreContainer>
+        <div id ="high-scorePage">
+            <div id ="highscore-header">
+                <h3>user initials</h3>
+                <h3>score</h3>
+            </div>
+            <div id="highscore-initials"></div>
+            <div id ="highscore-score"></div>
+        </div>
+        <button id="endQuizBtns">End Quiz</button>
+            <button id="clearHighscore">Clear Highscores</button>
+            </div>
         </div>
 
-        
-        
+        </div>
+
+
+
     </div>
 
 
@@ -51,8 +66,9 @@
 
 
 
-<script src ="assets/js/questions.js"></script>
+    <script src="assets/js/questions.js"></script>
     <script src="assets/js/script.js"></script>
+    
 
 </body>
 
