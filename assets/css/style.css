@@ -117,3 +117,6 @@ li {
   color: #fff
 }
 
+.highScoreContainer {
+  border: black solid 10px;
+}

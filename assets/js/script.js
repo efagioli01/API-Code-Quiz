@@ -1,11 +1,14 @@
 //HTML elements
 let startQuizButton = document.querySelector("#start-button")
+let endQuizButton = document.querySelector("#end-button")
 let startPageHighScore = document.querySelector("start-page-highscore")
 let quizPage = document.querySelector('#quiz');
 let timerEl= document.querySelector("#time");
 let choicesEl= document.querySelector("#choices");
+let answerEl= document.querySelector("#answer");
 let resultEL = document.querySelector("#result");; 
 let startScreen = document.querySelector("#start");
+
 
 
 // let finalScoreEl = document.querySelector("#finalScore");
@@ -23,9 +26,10 @@ let startScreen = document.querySelector("#start");
 // let clearScoreBtn = document.querySelector("#Clearhighscore");
 
 
-let time =questions.length * 10
-//let timerId;
+let time =questions.length * 5
+let timerId;
 let questionIndex=0
+
 console.log(time);
 
 function startQuiz() {
@@ -43,13 +47,14 @@ function clock() {
    timerEl.textContent = time;
    if (time > 0) {
       time--;
-      setTimeout(decrement, 1000);
+      
+      //  setTimeout(decrement, 1000);
    }
    if (time <= 0) {
-      //quizEnd()
+      // clearInterval(timerId); 
+      //end quiz
    }
 };
-
 
 
 function getQuestion() {
@@ -96,8 +101,8 @@ function questionClick(event) {
    }, 1000) 
 
    questionIndex++
-   if (questionIndex === questions.length) {
-     quizEnd()
+   if (questionIndex === questions.length || time === 0) {
+      
    }
    else {
       getQuestion()
@@ -119,3 +124,4 @@ function questionClick(event) {
 
 startQuizButton.addEventListener("click",startQuiz);
 
+// endQuizButton.addEventListener("click",endQuiz);
