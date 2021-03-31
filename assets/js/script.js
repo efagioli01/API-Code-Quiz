@@ -4,27 +4,26 @@ let startPageHighScore = document.querySelector("start-page-highscore")
 let quizPage = document.querySelector('#quiz');
 let timerEl= document.querySelector("#time");
 let choicesEl= document.querySelector("#choices");
-let resultEL = document.querySelector("#result");
-let quizOverEl = document.querySelector("quizOver"); 
+let resultEL = document.querySelector("#result");; 
 let startScreen = document.querySelector("#start");
 
 
-let finalScoreEl = document.querySelector("#finalScore");
-let submitBtn = document.querySelector("#subitScore");
-let highScoreHeader = document.querySelector("#highscore-header")
-let highScoreInput = document.querySelector("#highscore-initials");
-let saveScoreBtn = document.querySelector("#saveScoreBtn");
-let mostRecentScore = document.querySelector("mostRecentScore");
+// let finalScoreEl = document.querySelector("#finalScore");
+// let submitBtn = document.querySelector("#subitScore");
+// let highScoreHeader = document.querySelector("#highscore-header")
+// let highScoreInput = document.querySelector("#highscore-initials");
+// let saveScoreBtn = document.querySelector("#saveScoreBtn");
+// let mostRecentScore = document.querySelector("mostRecentScore");
 
 
 
-let highscoreContainer = document.querySelector("#highscoreContainer");
-let highscoreDiv= document.querySelector("#high-ScorePage");
-let highScoreDisplay = document.querySelector("#highscore-score");
-let clearScoreBtn = document.querySelector("#Clearhighscore");
+// let highscoreContainer = document.querySelector("#highscoreContainer");
+// let highscoreDiv= document.querySelector("#high-ScorePage");
+// let highScoreDisplay = document.querySelector("#highscore-score");
+// let clearScoreBtn = document.querySelector("#Clearhighscore");
 
 
-let time =questions.length * 15
+let time =questions.length * 10
 //let timerId;
 let questionIndex=0
 console.log(time);
@@ -44,10 +43,10 @@ function clock() {
    timerEl.textContent = time;
    if (time > 0) {
       time--;
-      setTimeout('decrement'(), 1000);
+      setTimeout(decrement, 1000);
    }
    if (time <= 0) {
-      quizEnd()
+      //quizEnd()
    }
 };
 
@@ -72,8 +71,9 @@ function getQuestion() {
 }
 
 
-function questionClick() {
-   if (this.value !== questions[questionIndex].answer) {  
+function questionClick(event) {
+   let value = event.currentTarget.getAttribute("value")
+   if (value !== questions[questionIndex].answer) {  
       time-=10;
    
       if(time < 0) {
