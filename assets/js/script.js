@@ -6,107 +6,112 @@ let quizPage = document.querySelector('#quiz');
 let timerEl= document.querySelector("#time");
 let choicesEl= document.querySelector("#choices");
 let answerEl= document.querySelector("#answer");
-let resultEL = document.querySelector("#result");; 
+let resultEL = document.querySelector("#result");
 let startScreen = document.querySelector("#start");
+let finalResultEl = document.querySelector("#final-result");
 
 
-
-// let finalScoreEl = document.querySelector("#finalScore");
 // let submitBtn = document.querySelector("#subitScore");
 // let highScoreHeader = document.querySelector("#highscore-header")
 // let highScoreInput = document.querySelector("#highscore-initials");
 // let saveScoreBtn = document.querySelector("#saveScoreBtn");
 // let mostRecentScore = document.querySelector("mostRecentScore");
 
-
-
 // let highscoreContainer = document.querySelector("#highscoreContainer");
 // let highscoreDiv= document.querySelector("#high-ScorePage");
 // let highScoreDisplay = document.querySelector("#highscore-score");
 // let clearScoreBtn = document.querySelector("#Clearhighscore");
 
-
-let time =questions.length * 5
+let time = questions.length * 5;
 let timerId;
-let questionIndex=0
+let questionIndex = 0;
 
-console.log(time);
+// console.log(time);
 
 function startQuiz() {
+   console.log('---> Start Quiz!');
+
    startScreen.setAttribute("class", "hide");
    quizPage.removeAttribute("class");
    timerId = setInterval(clock, 1000);
-   timerEl.textContent = time;
 
-
-   getQuestion() 
-
+   getQuestion();
 }
 
 function clock() {
+   console.log('Clock');
+
    timerEl.textContent = time;
+
    if (time > 0) {
       time--;
-      
-      //  setTimeout(decrement, 1000);
-   }
-   if (time <= 0) {
-      // clearInterval(timerId); 
-      //end quiz
+   } else {
+      stopQuiz();
    }
 };
 
 
 function getQuestion() {
-   let currentQuestion = questions[questionIndex] 
-   let titleEl =document.querySelector("#question-title");
-   console.log(currentQuestion)
-   titleEl.textContent = currentQuestion.title
+   console.log('Get Question');
+   if (questionIndex === questions.length || time === 0) {
+      stopQuiz();
+   } else {
+      let currentQuestion = questions[questionIndex];
+      let titleEl = document.querySelector("#question-title");
+      // console.log(currentQuestion);
+      titleEl.textContent = currentQuestion.title;
 
-   choicesEl.textContent = ""
+      choicesEl.textContent = "";
 
-   currentQuestion.choices.forEach(function(choice, i) {
-      let choiceButton = document.createElement("li")
-      choiceButton.setAttribute("class", "choicebtn")
-      choiceButton.setAttribute("value", choice)
-      choiceButton.textContent = choice
-      choiceButton.addEventListener('click',questionClick)
-      choicesEl.appendChild(choiceButton)
-   })
+      currentQuestion.choices.forEach(function(choice, i) {
+         let choiceButton = document.createElement("li");
+
+         choiceButton.setAttribute("class", "choicebtn");
+         choiceButton.setAttribute("value", choice);
+         choiceButton.textContent = choice;
+         choiceButton.addEventListener('click', questionClick);
+         choicesEl.appendChild(choiceButton);
+      });
+   }
+}
+
+function stopQuiz() {
+   console.log('Stop Quiz');
+   clearInterval(timerId);
+
+   quizPage.setAttribute("class", "hide");
+   finalResultEl.removeAttribute("class");
 }
 
 
 function questionClick(event) {
-   let value = event.currentTarget.getAttribute("value")
-   if (value !== questions[questionIndex].answer) {  
-      time-=10;
-   
-      if(time < 0) {
-         time = 0
+   console.log('Question Click');
+   let value = event.currentTarget.getAttribute("value");
+
+   if (value !== questions[questionIndex].answer) {
+      time -= 10;
+
+      if (time < 0) {
+         time = 0;
       }
 
-      timerEl.textContent = time
+      timerEl.textContent = time;
 
-      result.textContent = "wrong!"
+      resultEL.textContent = "wrong!";
+   } else {
+      resultEL.textContent = "correct!";
    }
 
-  else {
-      result.textContent = "correct!"
-   }
-
-   result.setAttribute("class", "feedback")
+   resultEL.setAttribute("class", "feedback");
 
    setTimeout(function() {
-      result.setAttribute("class", "feedback hide")
-   }, 1000) 
+      resultEL.setAttribute("class", "feedback hide")
+   }, 1000);
 
-   questionIndex++
-   if (questionIndex === questions.length || time === 0) {
-      
-   }
-   else {
-      getQuestion()
-   }
+   questionIndex++;
+
+   getQuestion();
+   
 }
 
 
