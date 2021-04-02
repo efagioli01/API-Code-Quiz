@@ -13,8 +13,8 @@
   }
 
   header {
-    
     background-color:rgb(255, 4, 222); 
+    
   }
 
   
@@ -117,6 +117,18 @@ li {
   color: #fff
 }
 
-.highScoreContainer {
-  border: black solid 10px;
+#final-result {
+  border: #bb80ca 5px solid; border-radius: 10px;
+  width: 50%;
+  height: auto;
+  margin: 10px;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  color: pink; font-weight: bold; 
+
 }
+
+/* .highScoreContainer {
+  border: black solid 10px;
+} */

@@ -11,22 +11,10 @@ let startScreen = document.querySelector("#start");
 let finalResultEl = document.querySelector("#final-result");
 
 
-// let submitBtn = document.querySelector("#subitScore");
-// let highScoreHeader = document.querySelector("#highscore-header")
-// let highScoreInput = document.querySelector("#highscore-initials");
-// let saveScoreBtn = document.querySelector("#saveScoreBtn");
-// let mostRecentScore = document.querySelector("mostRecentScore");
-
-// let highscoreContainer = document.querySelector("#highscoreContainer");
-// let highscoreDiv= document.querySelector("#high-ScorePage");
-// let highScoreDisplay = document.querySelector("#highscore-score");
-// let clearScoreBtn = document.querySelector("#Clearhighscore");
-
 let time = questions.length * 5;
 let timerId;
 let questionIndex = 0;
 
-// console.log(time);
 
 function startQuiz() {
    console.log('---> Start Quiz!');
@@ -116,6 +104,23 @@ function questionClick(event) {
 
 
 
+// function saveNewScore() {
+//    let finalScore = {
+//        initials: initials.value,
+//        score: secondsLeft
+//    };
+//    let allScores = localStorage.getItem("allScores");
+//    if (!allScores) {
+//        allScores = [];
+//    } else {
+//        allScores = JSON.parse(allScores);
+//    }
+//   allScores.push(finalScore);
+//   let newScore = JSON.stringify(allScores);
+//   localStorage.setItem("allScores", newScore);
+//    window.location.replace("./index.html");
+// }
+
 
 
 
@@ -129,4 +134,4 @@ function questionClick(event) {
 
 startQuizButton.addEventListener("click",startQuiz);
 
-// endQuizButton.addEventListener("click",endQuiz);
+// endQuizButton.addEventListener("click",stopQuiz);
