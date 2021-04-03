@@ -32,7 +32,7 @@ This application generates a quiz that is multiple choice and is timed. The time
 ## Screenshot 
  ![screenshot](./images/apisnip1.PNG)
  ![screenshot](./images/apisnip2.PNG)
- ![screenshot](./images/apisni31.PNG)
+ ![screenshot](./images/apisnip3.PNG)
  ![screenshot](./images/apisnip4.PNG)
  ![screenshot](./images/apisnip5.PNG)
  
