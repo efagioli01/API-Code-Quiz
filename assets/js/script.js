@@ -1,7 +1,5 @@
 //HTML elements
-let startQuizButton = document.querySelector("#start-button")
-let endQuizButton = document.querySelector("#end-button")
-let startPageHighScore = document.querySelector("start-page-highscore")
+let startQuizButton = document.querySelector("#start-button");
 let quizPage = document.querySelector('#quiz');
 let timerEl= document.querySelector("#time");
 let choicesEl= document.querySelector("#choices");
@@ -11,7 +9,14 @@ let startScreen = document.querySelector("#start");
 let finalResultEl = document.querySelector("#final-result");
 
 
+let scoreBtn = document.querySelector("#submit");
+let scoresArray= []
+
+
+
+
 let time = questions.length * 5;
+let finalScore= 0;
 let timerId;
 let questionIndex = 0;
 
@@ -42,11 +47,13 @@ function clock() {
 function getQuestion() {
    console.log('Get Question');
    if (questionIndex === questions.length || time === 0) {
+      
       stopQuiz();
+      
    } else {
       let currentQuestion = questions[questionIndex];
       let titleEl = document.querySelector("#question-title");
-      // console.log(currentQuestion);
+      console.log(currentQuestion);
       titleEl.textContent = currentQuestion.title;
 
       choicesEl.textContent = "";
@@ -59,16 +66,24 @@ function getQuestion() {
          choiceButton.textContent = choice;
          choiceButton.addEventListener('click', questionClick);
          choicesEl.appendChild(choiceButton);
+
       });
+      
    }
+
+   
 }
 
 function stopQuiz() {
    console.log('Stop Quiz');
    clearInterval(timerId);
+   
 
    quizPage.setAttribute("class", "hide");
    finalResultEl.removeAttribute("class");
+
+   finalScore= time
+   localStorage.setItem("recentScore", finalScore)
 }
 
 
@@ -104,26 +119,30 @@ function questionClick(event) {
 
 
 
-// function saveNewScore() {
-//    let finalScore = {
-//        initials: initials.value,
-//        score: secondsLeft
-//    };
-//    let allScores = localStorage.getItem("allScores");
-//    if (!allScores) {
-//        allScores = [];
-//    } else {
-//        allScores = JSON.parse(allScores);
-//    }
-//   allScores.push(finalScore);
-//   let newScore = JSON.stringify(allScores);
-//   localStorage.setItem("allScores", newScore);
-//    window.location.replace("./index.html");
-// }
 
 
 
+function saveNewScore() {
 
+   let finalScore = {
+       initials: " ",
+       score: time
+
+   };
+   let allScores = localStorage.getItem("allScores");
+   if (!allScores) {
+       allScores = [];
+   } else {
+       allScores = JSON.parse(allScores);
+   }
+  allScores.push(finalScore);
+  let newScore = JSON.stringify(allScores);
+  localStorage.setItem("allScores", newScore);
+   window.location.replace("./highscores.html");
+
+   
+   console.log(userInitials);
+}
 
 
 
@@ -134,4 +153,4 @@ function questionClick(event) {
 
 startQuizButton.addEventListener("click",startQuiz);
 
-// endQuizButton.addEventListener("click",stopQuiz);
+scoreBtn.addEventListener("click",saveNewScore);
