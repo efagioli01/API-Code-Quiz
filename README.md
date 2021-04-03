@@ -25,10 +25,14 @@ This application generates a quiz that is multiple choice and is timed. The time
 
 ## Links
 
-* [GitHub Repository](https://github.com/efagioli01/Password-Generator-code-refactor)
-* [Deployed Application](https://efagioli01.github.io/Password-Generator-code-refactor/)
+* [GitHub Repository](https://github.com/efagioli01/API-code-quiz)
+* [Deployed Application](https://efagioli01.github.io/API-code-quiz/)
 
 
 ## Screenshot 
- ![screenshot](./images/gen1.PNG)
+ ![screenshot](./images/apisnip1.PNG)
+ ![screenshot](./images/apisnip2.PNG)
+ ![screenshot](./images/apisni31.PNG)
+ ![screenshot](./images/apisnip4.PNG)
+ ![screenshot](./images/apisnip5.PNG)
  
